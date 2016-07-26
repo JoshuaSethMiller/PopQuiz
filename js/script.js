@@ -5,8 +5,7 @@ window.onload = function() {
         checker = document.getElementsByClassName('checker')[0],
         current = 0,
 
-        // An object that holds all the questions + possible answers.
-        // In the array --> last digit gives the right answer position
+        // object that holds answers
         allQuestions = {
             "I'm gonna make him an offer he can't refuse.": ["The God Father", "Star Wars", "Jerry MaGuire", "Dirty Harry", "The Shining", 0],
 
@@ -20,8 +19,7 @@ window.onload = function() {
         };
 
     function loadQuestion(curr) {
-        // This function loads all the question into the questionArea
-        // It grabs the current question based on the 'current'-variable
+        // loads all the questions
 
         var question = Object.keys(allQuestions)[curr];
 
@@ -30,9 +28,8 @@ window.onload = function() {
     }
 
     function loadAnswers(curr) {
-        // This function loads all the possible answers of the given question
-        // It grabs the needed answer-array with the help of the current-variable
-        // Every answer is added with an 'onclick'-function
+        //loads all the answers
+
 
         var answers = allQuestions[Object.keys(allQuestions)[curr]];
 
@@ -51,10 +48,7 @@ window.onload = function() {
     }
 
     function checkAnswer(i, arr) {
-        // This is the function that will run, when clicked on one of the answers
-        // Check if givenAnswer is sams as the correct one
-        // After this, check if it's the last question:
-        // If it is: empty the answerArea and let them know it's done.
+
 
         return function() {
             var givenAnswer = i,
@@ -80,8 +74,8 @@ window.onload = function() {
     }
 
     function addChecker(bool) {
-        // This function adds a div element to the page
-        // Used to see if it was correct or false
+        //adds div elements
+
 
         var createDiv = document.createElement('div'),
             txt = document.createTextNode(current + 1);
@@ -99,7 +93,7 @@ window.onload = function() {
     }
 
 
-    // Start the quiz right away
+    //starts the quiz
     loadQuestion(current);
     loadAnswers(current);
 
